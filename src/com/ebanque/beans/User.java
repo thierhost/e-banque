@@ -11,11 +11,27 @@ public class User {
 	private boolean est_admin;
     private List<Compte> mescomptes;
     
+    public User()
+    {
+    	super();
+    }
+    
+    public User(String nom, String prenom, String adresse,String login,String password, boolean admin){
+    	this.nom = nom;
+    	this.prenom = prenom;
+    	this.adresse = adresse;
+    	this.login = login;
+    	this.password = password;
+    	this.est_admin = admin;
+    }
+    
+    
     public User(String nom, String prenom, String adresse, Compte a)
 	{
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
+		this.est_admin = false;
 		mescomptes = new ArrayList<Compte>();
 		mescomptes.add(a);
 		
@@ -36,6 +52,15 @@ public class User {
 		return this.adresse;
 	}
 	
+	public String getLogin()
+	{
+		return login;
+	}
+	
+	public String getPassword()
+	{
+		return password;
+	}
 	public List<Compte> getCompte()
 	{
 		return this.mescomptes;
@@ -47,4 +72,30 @@ public class User {
 	{
 		this.mescomptes.add(a);
 	}
+	
+	// les setters
+	
+	public void setNom(String nom){
+		this.nom = nom;
+	}
+	public void setPrenom(String prenom){
+		this.prenom = prenom;
+	}
+	public void setLogin(String login){
+		this.login = login;
+	}
+	public void setPassword(String password){
+		this.password = password;
+	}
+	public void setEst_admin(boolean admin)
+	{
+		this.est_admin = admin;
+	}
+	public void setAdresse(String adresse)
+	{
+		this.adresse = adresse;
+	}
+	
+	
+	
 }
