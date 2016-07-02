@@ -18,19 +18,19 @@
           <diV class="panel-heading">
             <div class="page-header">
                   <p>
-                        <h1 class="text-center">  Sign in to MyApp</h1>
+                        <h1 class="text-center"> Connexion</h1>
             
                   </p>
             </div>
 
           </diV>
           <div class="panel-body">
-              <form class="text-center" id="form1" method="POST" action="connexion.php">
+              <form class="text-center" id="form1" method="POST" >
               
-            <label for="text">UserName</label> 
+            <label for="text">Email</label> 
                 <div class="row">
                   <div class="col-md-offset-3 col-md-6">
-              <input type="text" name="login"  class="form-control" tabindex="1" required placeholder="login de l'utilisateur" autofocus> <br/>                     
+              <input type="email" name="login"  class="form-control" tabindex="1" required placeholder="votre mail" autofocus> <br/>                     
                   </div>
                 </div>
              
@@ -49,8 +49,7 @@
           </div>
 
           <div class="panel-footer">
-              <button type="submit" class="btn btn-success" name="connexion"  form="form1">Connexion</button>            
-               <button type="#" class="btn btn-danger" data-toggle="modal" href="#modal_inscription">Inscription</button> 
+              <button type="submit" class="btn btn-success" name="connexion"  form="form1">Connexion</button>             
               <button type="reset" class="btn btn-warning  pull-right" >Annuler</button>
 
           </div>
