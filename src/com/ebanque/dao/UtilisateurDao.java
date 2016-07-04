@@ -6,9 +6,10 @@ import com.ebanque.beans.User;
 
 public interface UtilisateurDao {
 	User connexion(User utilisateur);
-	void ajouter( User utilisateur );
+	void ajouterAdmin( User utilisateur );
 	void modifier( User utilisateur );
 	void supprimer( User utilisateur );
-    List<User> lister();
+    List<User> listeradmin();
+    List<User> listerclient();
 
 }

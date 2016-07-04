@@ -11,6 +11,26 @@
 <title>Index-Connexion</title>
 </head>
 <body>
+<%
+	String error = (String) request.getAttribute("error");
+	if(error != null)
+	{// on affiche le message d'erreur
+		
+%>
+	<div class="conatiner">
+	<div class="alert alert-danger">
+	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Error!</strong> Login ou mot de passe incorect !
+		<a class="btn btn-success" href="/e-banque/index">retour</a>
+	</div>
+	</div>
+
+ <%
+	}else
+	{
+%>
+		
+
 <div class="container">
   <div class="row">
     <diV class="col-md-offset-3 col-md-6">
@@ -62,9 +82,12 @@
 
 </div>
 
+<%		
+	}	
+%>
 
 
-<script src="assets/js/jquery.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/jquery.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
 </body>
 </html>

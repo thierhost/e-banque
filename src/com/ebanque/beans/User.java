@@ -61,6 +61,10 @@ public class User {
 	{
 		return password;
 	}
+	public boolean getEst_admin()
+	{
+		return est_admin;
+	}
 	public List<Compte> getCompte()
 	{
 		return this.mescomptes;
@@ -94,6 +98,11 @@ public class User {
 	public void setAdresse(String adresse)
 	{
 		this.adresse = adresse;
+	}
+	
+	public String toString()
+	{
+		return this.prenom;
 	}
 	
 	

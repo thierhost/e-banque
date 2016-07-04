@@ -11,4 +11,16 @@
  	<url-pattern>/index</url-pattern>
  </servlet-mapping>
  
+ <servlet>
+ 	<servlet-name>AccueilAdminServelt</servlet-name>
+ 	<servlet-class>com.ebanque.servelets.AccueilAdminServelt</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>AccueilAdminServelt</servlet-name>
+ 	<url-pattern>/admin/index</url-pattern>
+ </servlet-mapping>
+ 
+ 
+ 
+ 
 </web-app>
