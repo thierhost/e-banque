@@ -19,8 +19,17 @@
  	<servlet-name>AccueilAdminServelt</servlet-name>
  	<url-pattern>/admin/index</url-pattern>
  </servlet-mapping>
+
+ <servlet>
+ 	<servlet-name>AddAdminServelet</servlet-name>
+ 	<servlet-class>com.ebanque.servelets.AddAdminServelet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>AddAdminServelet</servlet-name>
+ 	<url-pattern>/admin/addadmin</url-pattern>
+ </servlet-mapping>
  
  
  
- 
+
 </web-app>

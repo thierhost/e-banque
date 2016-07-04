@@ -29,12 +29,52 @@
 	List<User> admins = new ArrayList<User>();
 	admins = (ArrayList<User>) request.getAttribute("admins");
 	if(admins==null){
-        out.println("Vide");
+        
+        %>
+			<div class="conatiner">
+			<div class="alert alert-danger">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Error!</strong> <%out.println("Vide"); %>!
+		
+			</div>
+			</div>
+       <%
     }else{
+    	%>
+    	<div class="col-md-12">
+				<div class="table-responsive">
+					<table class="table  table-bordered table-striped table-condensed" id="mytable">
+			  			<thead>
+					      <tr class="active info">  
+					        <th>Nom</th>
+					        <th>Prenom</th>
+					        <th>Login</th>
+					        <th>Adresse</th>	        	
+						    </tr>
+				   		</thead> 
+				   		<tbody >
+    	
+    	
+    	<%
+    	
     	for(Iterator<User> it = admins.iterator(); it.hasNext();){
             User admin = it.next();
-            out.println(admin.getNom());
+            out.println("<tr>");
+            out.println("<td>"+admin.getNom()+"</td>");
+            out.println("<td>"+admin.getPrenom()+"</td>");
+            out.println("<td>"+admin.getLogin()+"</td>");
+            out.println("<td>"+admin.getAdresse()+"</td>");
+            out.println("</tr>");
+            
         }
+    	%>
+    		
+	  </tbody>
+		</table>
+		</div>	
+		</div>
+    	
+    	<%
     
     }
 %>

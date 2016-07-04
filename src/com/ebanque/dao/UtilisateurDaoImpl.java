@@ -72,7 +72,24 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
 	@Override
 	public void ajouterAdmin(User utilisateur) {
-		// TODO Auto-generated method stub
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connexion = (Connection) daoFactory.getConnection();
+            preparedStatement = (PreparedStatement) connexion.prepareStatement("INSERT INTO user VALUES(?,?,?,?,?,?);");
+            preparedStatement.setString(1, utilisateur.getLogin());
+            preparedStatement.setString(2, utilisateur.getPassword());
+            preparedStatement.setString(3, utilisateur.getNom());
+            preparedStatement.setString(4, utilisateur.getPrenom());
+            preparedStatement.setString(5, utilisateur.getAdresse());
+            preparedStatement.setBoolean(6, utilisateur.getEst_admin());
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 		
 	}
 

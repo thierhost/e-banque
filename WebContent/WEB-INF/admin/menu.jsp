@@ -9,12 +9,12 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/gestioncompte/index">Gestion de Compte Bancaire</a>
+			<a class="navbar-brand" href="/e-banque/admin/index">Gestion de Compte Bancaire</a>
 		</div>
 		<div class="navbar-collapse collapse">
        	<ul class="nav navbar-nav">
-			<li class="active"> <a href="#"><span class="glyphicon glyphicon-home"></span> Home  </a> </li>
-			<li class="active"> <a href="#"> Ajouter administrateur  </a> </li>
+			<li class="active"> <a href="/e-banque/admin/index"><span class="glyphicon glyphicon-home"></span> Home  </a> </li>
+			<li class="active"> <a href="/e-banque/admin/addadmin"> Ajouter administrateur  </a> </li>
 			<li class="active"> <a href="#"> Créer un compte  </a> </li>
 			<li class="active"> <a href="#"> Ajouter un compte </a> </li>	
 				
