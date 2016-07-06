@@ -71,7 +71,7 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
     }
 
 	@Override
-	public void ajouterAdmin(User utilisateur) {
+	public void ajouterUser(User utilisateur) {
 		Connection connexion = null;
         PreparedStatement preparedStatement = null;
 
@@ -92,6 +92,9 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
 		
 	}
+
+
+
 
 	@Override
 	public List<User> listeradmin() {

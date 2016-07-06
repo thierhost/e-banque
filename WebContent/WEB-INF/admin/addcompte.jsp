@@ -19,10 +19,9 @@
 <body>
 
 <jsp:include page="menu.jsp"></jsp:include>
-
-	<div class="container">
+<div class="container">
 		<div class="page-header text-center">
-			<h1>Ajouter un nouveau administrateur</h1>
+			<h1>Créer un nouveau compte</h1>
 		</div>
 		
 		<div class="row">
@@ -45,6 +44,14 @@
 					<input type="email" class="form-control"placeholder="votre email" required  name="login"><br>
 					<label	for="inputAdresse" class="sr-only">Mot de passe </label> 
 					<input type="password" class="form-control"placeholder="password" required  name="password"><br>
+					<label	for="inputAdresse" class="sr-only">Solde du compte </label> 
+					<input type="number" class="form-control"placeholder="Solde de départ" required  name="solde"><br>
+					<label	for="inputAdresse" class="sr-only">Debit Maximal </label> 
+					<input type="number" class="form-control"placeholder="Debit maximal" required  name="debitmaximal"><br>
+					
+					<label	for="inputAdresse" class="sr-only">Decouvert Maximal </label> 
+					<input type="number" class="form-control"placeholder="Decouvert Maximal" required  name="decouvertmaximal"><br>
+					
 								
 					<input  class="btn btn-success" type="submit" value="Ajouter" name="ajouter"> 
 					
@@ -59,6 +66,9 @@
 
 
 	</div>
+
+
+
 
 
 

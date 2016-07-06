@@ -31,5 +31,27 @@
  
  
  
+ 
+ <servlet>
+ 	<servlet-name>AccueilClientServelt</servlet-name>
+ 	<servlet-class>com.ebanque.servelets.AccueilClientServelt</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>AccueilClientServelt</servlet-name>
+ 	<url-pattern>/client/index</url-pattern>
+ </servlet-mapping>
+ 
+  <servlet>
+ 	<servlet-name>AddCompteServelet</servlet-name>
+ 	<servlet-class>com.ebanque.servelets.AddCompteServelet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>AddCompteServelet</servlet-name>
+ 	<url-pattern>/admin/addacompte</url-pattern>
+ </servlet-mapping>
+ 
+ 
+ 
+ 
 
 </web-app>

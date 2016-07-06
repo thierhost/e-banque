@@ -35,6 +35,7 @@ public class ConnexionServelet extends HttpServlet {
 		user.setLogin(req.getParameter("login"));
 		user.setPassword(req.getParameter("password"));
 		userconnecte = utilisateurDao.connexion(user);
+		System.out.println(userconnecte.getEst_admin());
 		//  on verifie si le user est bien connecte
 		if(userconnecte.getNom()!=null)
 		{
@@ -49,7 +50,7 @@ public class ConnexionServelet extends HttpServlet {
 				// on le redirige vers la partie client
 				req.getSession().setAttribute("user",userconnecte);
 				//req.getRequestDispatcher().forward(req, resp);
-				resp.sendRedirect("/e-banque/admin/index");
+				resp.sendRedirect("/e-banque/client/index");
 			}
 			
 		}else

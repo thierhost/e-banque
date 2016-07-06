@@ -15,7 +15,7 @@
        	<ul class="nav navbar-nav">
 			<li class="active"> <a href="/e-banque/admin/index"><span class="glyphicon glyphicon-home"></span> Home  </a> </li>
 			<li class="active"> <a href="/e-banque/admin/addadmin"> Ajouter administrateur  </a> </li>
-			<li class="active"> <a href="#"> Créer un compte  </a> </li>
+			<li class="active"> <a href="/e-banque/admin/addacompte"> Créer un compte  </a> </li>
 			<li class="active"> <a href="#"> Ajouter un compte </a> </li>	
 				
 		</ul>
