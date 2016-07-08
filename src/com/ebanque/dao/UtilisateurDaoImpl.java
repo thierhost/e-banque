@@ -132,12 +132,41 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 
 	@Override
 	public List<User> listerclient() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		 List<User> client = new ArrayList<User>();
+	        Connection connexion = null;
+	        Statement statement = null;
+	        ResultSet resultat = null;
+
+	        try {
+	            connexion = (Connection) daoFactory.getConnection();
+	            statement = (Statement) connexion.createStatement();
+	            resultat = statement.executeQuery("SELECT * FROM user where est_admin=false;");
+
+	            while (resultat.next()) {
+	                String nom = resultat.getString("nom");
+	                String prenom = resultat.getString("prenom");
+	                String login = resultat.getString("login");
+	                String adresse = resultat.getString("adresse");
+	                
+	                User utilisateur = new User();
+	                utilisateur.setNom(nom);
+	                utilisateur.setPrenom(prenom);
+	                utilisateur.setAdresse(adresse);
+	                utilisateur.setLogin(login);
+	                client.add(utilisateur);
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return client;
+	    }
+
+
 	}
 
 		
 	
 
-}
+
 

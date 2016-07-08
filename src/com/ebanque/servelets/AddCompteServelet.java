@@ -30,6 +30,7 @@ public class AddCompteServelet  extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		// recuperation des inputs provenenant du formulaire
 		User client= new User();
 		
@@ -45,7 +46,7 @@ public class AddCompteServelet  extends HttpServlet{
 		
 		Compte compte = new Compte(solde,decouvertmaximal,debitmaximal);
 		compteDao.creercompte(compte, client);
-		
+		resp.sendRedirect("/e-banque/admin/index");
 	
 		
 	}

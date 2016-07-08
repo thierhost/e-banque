@@ -16,7 +16,7 @@ public class Compte {
 	public Compte(float solde, int decouvertmax, int debitmax)
 	{
 		this.solde = solde;
-		this.debitmaximal = debitmax;
+		this.decouvertmaximal = decouvertmax;
 		this.debitmaximal = debitmax;
 	}
 
@@ -105,6 +105,10 @@ public class Compte {
 		this.decouvertmaximal = decouvert;
 	}
 	
+	public void setNumero(int numero)
+	{
+		this.numerocompte = numero;
+	}
 	// fonction toString
 	public String toString()
 	{

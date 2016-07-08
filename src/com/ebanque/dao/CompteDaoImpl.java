@@ -1,12 +1,15 @@
 package com.ebanque.dao;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ebanque.beans.Compte;
 import com.ebanque.beans.User;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.Statement;
 
 public class CompteDaoImpl implements CompteDao{
 	private DaoFactory daoFactory;
@@ -43,11 +46,41 @@ public class CompteDaoImpl implements CompteDao{
 	
 		
 	}
+
 	@Override
-	public List<Compte> listercompte(User user) {
+	public List<Compte> mescomptes(User user) {
 		// TODO Auto-generated method stub
-		return null;
+		 List<Compte> mescomptes = new ArrayList<Compte>();
+	        Connection connexion = null;
+	        Statement statement = null;
+	        ResultSet resultat = null;
+	        PreparedStatement preparedStatement = null;
+
+
+	        try {
+	            connexion = (Connection) daoFactory.getConnection();
+	          //  statement = (Statement) connexion.createStatement();
+	            preparedStatement = (PreparedStatement) connexion.prepareStatement("SELECT * FROM compte where  login_user=?;");
+	            preparedStatement.setString(1, user.getLogin());
+	            resultat = preparedStatement.executeQuery();	
+	            while (resultat.next()) {
+	                int  numero = resultat.getInt("numero_compte");
+	                float solde = resultat.getFloat("solde");
+	                int decouvertmax = resultat.getInt("decouvertmaximal");
+	                int debitmaximal = resultat.getInt("debitmaximal");
+	                
+	                Compte compte = new Compte(solde, decouvertmax, debitmaximal);
+	                compte.setNumero(numero);
+	                mescomptes.add(compte);
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return mescomptes;
+	    }
+
+
 	}
 	
 
-}
+

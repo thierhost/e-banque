@@ -22,6 +22,7 @@ public class AccueilAdminServelt extends HttpServlet{
 		// TODO Auto-generated method stub
 		//super.doGet(req, resp);
 		req.setAttribute("admins",utilisateurDao.listeradmin());
+		req.setAttribute("clients",utilisateurDao.listerclient());
 		req.getRequestDispatcher("/WEB-INF/admin/index.jsp").forward(req, resp);
 	}
 

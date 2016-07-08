@@ -24,6 +24,61 @@
 <body>
 
 <jsp:include page="menu.jsp"></jsp:include>
+<%
+	List<Compte> mescomptes = new ArrayList<Compte>();
+	mescomptes = (ArrayList<Compte>) request.getAttribute("mescomptes");
+	if(mescomptes==null){
+        
+        %>
+			<div class="conatiner">
+			<div class="alert alert-danger">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Error!</strong> <%out.println("Aucun compte"); %>!
+		
+			</div>
+			</div>
+       <%
+    }else{
+    	%>
+    	<div class="col-md-12">
+    	<h1 class="page-header">Mes comptes bancaires</h1>
+				<div class="table-responsive">
+					<table class="table  table-bordered table-striped table-condensed" id="mytable">
+			  			<thead>
+					      <tr class="active info">  
+					        <th>Numero </th>
+					        <th>Solde</th>
+					        <th>Debit Maximal</th>
+					        <th>Decouvert Maximal</th>	        	
+						    </tr>
+				   		</thead> 
+				   		<tbody >
+    	
+    	
+    	<%
+    	
+    	for(Iterator<Compte> it = mescomptes.iterator(); it.hasNext();){
+           Compte compte = it.next();
+            out.println("<tr>");
+            out.println("<td>"+compte.getNumerocompte()+"</td>");
+            out.println("<td>"+compte.getSolde()+"</td>");
+            out.println("<td>"+compte.getDebitmaximal()+"</td>");
+            out.println("<td>"+compte.getDecouvertmaximal()+"</td>");
+            out.println("</tr>");
+            
+        }
+    	%>
+    		
+	  </tbody>
+		</table>
+		</div>	
+		</div>
+    	
+    	<%
+    
+    }
+%>
+
 
 
 

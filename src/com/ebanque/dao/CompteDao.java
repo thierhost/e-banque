@@ -7,6 +7,6 @@ import com.ebanque.beans.User;
 
 public interface CompteDao {
 	void creercompte (Compte compte,User user);
-	List<Compte> listercompte(User user);
+	List<Compte> mescomptes(User user);
 
 }
