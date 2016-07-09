@@ -2,6 +2,7 @@ package com.ebanque.dao;
 
 import java.util.List;
 
+import com.ebanque.beans.Compte;
 import com.ebanque.beans.User;
 
 public interface UtilisateurDao {
@@ -11,5 +12,6 @@ public interface UtilisateurDao {
 	void supprimer( User utilisateur );
     List<User> listeradmin();
     List<User> listerclient();
+    
 
 }

@@ -17,6 +17,7 @@
 			<li class="active"> <a href="/e-banque/admin/addadmin"> Ajouter administrateur  </a> </li>
 			<li class="active"> <a href="/e-banque/admin/addacompte"> Créer un compte  </a> </li>
 			<li class="active"> <a href="#"> Ajouter un compte </a> </li>	
+			<li class="active"> <a href="/e-banque/deconnexion"> Deconnexion </a> </li>	
 				
 		</ul>
 		</div>

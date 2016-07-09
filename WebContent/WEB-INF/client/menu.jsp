@@ -14,10 +14,10 @@
 		<div class="navbar-collapse collapse">
        	<ul class="nav navbar-nav">
 			<li class="active"> <a href="/e-banque/client/index"><span class="glyphicon glyphicon-home"></span> Home  </a> </li>
-			<li class="active"> <a href="#">Crediter un compte  </a> </li>
-			<li class="active"> <a href="#"> Debiter un compte </a> </li>
+			<li class="active"> <a href="/e-banque/client/crediter">Crediter un compte  </a> </li>
+			<li class="active"> <a href="/e-banque/client/debiter"> Debiter un compte </a> </li>
 			<li class="active"> <a href="#"> Retrait </a> </li>	
-			<li class="active"> <a href="#"> Deconnexion </a> </li>	
+			<li class="active"> <a href="/e-banque/deconnexion"> Deconnexion </a> </li>	
 		</ul>
 		</div>
 	</div>

@@ -30,7 +30,7 @@
 	if(mescomptes==null){
         
         %>
-			<div class="conatiner">
+			<div class="container">
 			<div class="alert alert-danger">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 				<strong>Error!</strong> <%out.println("Aucun compte"); %>!

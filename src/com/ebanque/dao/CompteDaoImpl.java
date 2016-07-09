@@ -33,7 +33,7 @@ public class CompteDaoImpl implements CompteDao{
             connexion = (Connection) daoFactory.getConnection();
             preparedStatement = (PreparedStatement) connexion.prepareStatement("INSERT INTO compte(solde,decouvertmaximal,debitmaximal,login_user) VALUES(?,?,?,?);");
             preparedStatement.setFloat(1, compte.getSolde());
-            preparedStatement.setInt(2, compte.getDebitmaximal());
+            preparedStatement.setInt(2, compte.getDecouvertmaximal());
             preparedStatement.setInt(3, compte.getDebitmaximal());
             preparedStatement.setString(4,user.getLogin());
             preparedStatement.executeUpdate();
@@ -78,8 +78,101 @@ public class CompteDaoImpl implements CompteDao{
 	        }
 	        return mescomptes;
 	    }
+	
+
+	@Override
+	public boolean crediter(Compte compte, float montant) {
+		
+		// on verifie dabord qu'on peut crediter le montant
+		if(compte.crediter(montant)==true)
+		{
+			// on update le compte
+			Connection connexion = null;
+	        PreparedStatement preparedStatement = null;
+
+	        try {
+	            connexion = (Connection) daoFactory.getConnection();
+	            preparedStatement = (PreparedStatement) connexion.prepareStatement("Update compte set solde=? where numero_compte=?;");
+	            preparedStatement.setFloat(1, compte.getSolde()+montant);
+	            preparedStatement.setInt(2,compte.getNumerocompte());
+	            preparedStatement.executeUpdate();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+
+			
+			return true;
+		}else
+		{
+			return false;
+		}
+		
+	}
+	@Override
+	public boolean debiter(Compte compte, Compte compte_re, float montant) {
+		CompteDao compteDao = daoFactory.getCompteDao();
+		
+		if(compte.debiter(montant, compte_re)==true)
+		{
+			
+			compteDao.crediter(compte_re, montant);
+			Connection connexion = null;
+	        PreparedStatement preparedStatement = null;
+
+	        try {
+	            connexion = (Connection) daoFactory.getConnection();
+	            preparedStatement = (PreparedStatement) connexion.prepareStatement("Update compte set solde=? where numero_compte=?;");
+	            preparedStatement.setFloat(1, compte.getSolde()-montant);
+	            preparedStatement.setInt(2,compte.getNumerocompte());
+	            preparedStatement.executeUpdate();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+			
+			return true;
+			
+		}else
+		{
+			return false;
+		}
+	}
+	@Override
+	public Compte getComptebyNumero(int numero) {
+        Connection connexion = null;
+        Statement statement = null;
+        ResultSet resultat = null;
+        PreparedStatement preparedStatement = null;
+        Compte  compte;
+
+        try {
+            connexion = (Connection) daoFactory.getConnection();
+          //  statement = (Statement) connexion.createStatement();
+            preparedStatement = (PreparedStatement) connexion.prepareStatement("SELECT * FROM compte where  numero_compte=?;");
+            preparedStatement.setInt(1, numero);
+            resultat = preparedStatement.executeQuery();	
+            while (resultat.next()) {
+                int  numero_compte = resultat.getInt("numero_compte");
+                float solde = resultat.getFloat("solde");
+                int decouvertmax = resultat.getInt("decouvertmaximal");
+                int debitmaximal = resultat.getInt("debitmaximal");
+                
+                compte = new Compte(solde, decouvertmax, debitmaximal);
+                compte.setNumero(numero_compte);
+                return compte;
+                
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+     
+        return null;
+	
+
+	}
 
 
+	
+	
 	}
 	
 

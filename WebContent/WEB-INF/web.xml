@@ -32,6 +32,7 @@
  
  
  
+ 
  <servlet>
  	<servlet-name>AccueilClientServelt</servlet-name>
  	<servlet-class>com.ebanque.servelets.AccueilClientServelt</servlet-class>
@@ -50,8 +51,35 @@
  	<url-pattern>/admin/addacompte</url-pattern>
  </servlet-mapping>
  
+  <servlet>
+ 	<servlet-name>DeconnexionServelet</servlet-name>
+ 	<servlet-class>com.ebanque.servelets.DeconnexionServelet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>DeconnexionServelet</servlet-name>
+ 	<url-pattern>/deconnexion</url-pattern>
+ </servlet-mapping>
+ 
+ 
+   <servlet>
+ 	<servlet-name>CrediterServelet</servlet-name>
+ 	<servlet-class>com.ebanque.servelets.CrediterServelet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>CrediterServelet</servlet-name>
+ 	<url-pattern>/client/crediter</url-pattern>
+ </servlet-mapping>
+ 
+   <servlet>
+ 	<servlet-name>DebiterServelet</servlet-name>
+ 	<servlet-class>com.ebanque.servelets.DebiterServelet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>DebiterServelet</servlet-name>
+ 	<url-pattern>/client/debiter</url-pattern>
+ </servlet-mapping>
  
  
  
-
+ 
 </web-app>

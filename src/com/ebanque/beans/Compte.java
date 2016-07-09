@@ -49,20 +49,21 @@ public class Compte {
 	
 	}
 	
-	public boolean crediter(int montant)
+	public boolean crediter(float montant)
 	{
 		if(montant>0){
-			this.solde += montant;
+			
 			return true;
 		}else
 		{
+			
 			return false;
 		}
 	}
 	
-	public boolean debiter(int montant, Compte compte_recpeteur)
+	public boolean debiter(float montant, Compte compte_recpeteur)
 	{
-		if(this.solde-montant>this.decouvertmaximal)
+		if(this.solde-montant>this.decouvertmaximal && (this.getNumerocompte()!=compte_recpeteur.getNumerocompte()))
 		{
 			this.solde -= montant;
 			compte_recpeteur.crediter(montant);

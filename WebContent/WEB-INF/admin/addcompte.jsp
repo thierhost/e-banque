@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ajout d'un admin</title>
+<title>Ajout d'un compte</title>
 <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 <link href="../assets/css/style.css" rel="stylesheet">
 </head>
@@ -50,7 +50,7 @@
 					<input type="number" class="form-control"placeholder="Debit maximal" required  name="debitmaximal"><br>
 					
 					<label	for="inputAdresse" class="sr-only">Decouvert Maximal </label> 
-					<input type="number" class="form-control"placeholder="Decouvert Maximal" required  name="decouvertmaximal"><br>
+					<input type="number" class="form-control" placeholder="Decouvert Maximal" required  name="decouvertmaximal"><br>
 					
 								
 					<input  class="btn btn-success" type="submit" value="Ajouter" name="ajouter"> 
