@@ -71,12 +71,21 @@
  </servlet-mapping>
  
    <servlet>
- 	<servlet-name>DebiterServelet</servlet-name>
- 	<servlet-class>com.ebanque.servelets.DebiterServelet</servlet-class>
+ 	<servlet-name>VirrementServelet</servlet-name>
+ 	<servlet-class>com.ebanque.servelets.VirrementServelet</servlet-class>
  </servlet>
  <servlet-mapping>
- 	<servlet-name>DebiterServelet</servlet-name>
- 	<url-pattern>/client/debiter</url-pattern>
+ 	<servlet-name>VirrementServelet</servlet-name>
+ 	<url-pattern>/client/virrement</url-pattern>
+ </servlet-mapping>
+ 
+   <servlet>
+ 	<servlet-name>RetraitServelet</servlet-name>
+ 	<servlet-class>com.ebanque.servelets.RetraitServelet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>RetraitServelet</servlet-name>
+ 	<url-pattern>/client/retrait</url-pattern>
  </servlet-mapping>
  
  

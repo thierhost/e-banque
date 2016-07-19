@@ -11,7 +11,7 @@ import com.ebanque.beans.Compte;
 import com.ebanque.dao.CompteDao;
 import com.ebanque.dao.DaoFactory;
 
-public class DebiterServelet extends HttpServlet {
+public class VirrementServelet extends HttpServlet {
 	private CompteDao compteDao;
 	public void init() throws ServletException {
         DaoFactory daoFactory = DaoFactory.getInstance();
@@ -21,7 +21,7 @@ public class DebiterServelet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		req.getRequestDispatcher("/WEB-INF/client/debiter.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/client/virrement.jsp").forward(req, resp);
 	}
 
 	@Override
@@ -30,17 +30,19 @@ public class DebiterServelet extends HttpServlet {
 		int debiteur = Integer.parseInt(req.getParameter("debiteur"));
 		int crediteur = Integer.parseInt(req.getParameter("crediteur"));
 		float montant = Float.parseFloat(req.getParameter("montant"));
+		
 		// on verifie si le compt exite
 		Compte compte_crediteur = compteDao.getComptebyNumero(crediteur);
 		Compte compte_debiteur = compteDao.getComptebyNumero(debiteur);
 		if(compte_crediteur!=null && compte_debiteur!=null)
 		{
-			if(compteDao.debiter(compte_debiteur, compte_crediteur, montant)==true){
+			if(compteDao.virrement(compte_debiteur, compte_crediteur, montant)==true){
 				resp.sendRedirect("/e-banque/client/index");
 				
 			}else
 			{
 				// erroor
+				// here we can handle a new  error and send a new redirection 
 			}
 		}else
 		{

@@ -61,12 +61,10 @@ public class Compte {
 		}
 	}
 	
-	public boolean debiter(float montant, Compte compte_recpeteur)
+	public boolean virrement(float montant, Compte compte_recpeteur)
 	{
 		if(this.solde-montant>this.decouvertmaximal && (this.getNumerocompte()!=compte_recpeteur.getNumerocompte()))
 		{
-			this.solde -= montant;
-			compte_recpeteur.crediter(montant);
 			return true;
 		}else
 		{
@@ -74,7 +72,7 @@ public class Compte {
 		}
 	}
 	
-	public boolean retrait (int montant)
+	public boolean retrait (float montant)
 	{
 		if(montant>this.debitmaximal)
 		{
@@ -83,7 +81,6 @@ public class Compte {
 		{
 			if(this.solde-montant>this.decouvertmaximal)
 			{
-				this.solde -= montant;
 				return true;
 			}else
 			{

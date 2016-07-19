@@ -109,10 +109,10 @@ public class CompteDaoImpl implements CompteDao{
 		
 	}
 	@Override
-	public boolean debiter(Compte compte, Compte compte_re, float montant) {
+	public boolean virrement(Compte compte, Compte compte_re, float montant) {
 		CompteDao compteDao = daoFactory.getCompteDao();
 		
-		if(compte.debiter(montant, compte_re)==true)
+		if(compte.virrement(montant, compte_re)==true)
 		{
 			
 			compteDao.crediter(compte_re, montant);
@@ -122,7 +122,7 @@ public class CompteDaoImpl implements CompteDao{
 	        try {
 	            connexion = (Connection) daoFactory.getConnection();
 	            preparedStatement = (PreparedStatement) connexion.prepareStatement("Update compte set solde=? where numero_compte=?;");
-	            preparedStatement.setFloat(1, compte.getSolde()-montant);
+	            preparedStatement.setFloat(1, (compte.getSolde()-montant));
 	            preparedStatement.setInt(2,compte.getNumerocompte());
 	            preparedStatement.executeUpdate();
 	        } catch (SQLException e) {
@@ -169,7 +169,36 @@ public class CompteDaoImpl implements CompteDao{
 	
 
 	}
+	@Override
+	public boolean retrait(Compte compte, float montant) {
+		// on verifie dabord qu'on peut debiter ce compte
+		if(compte.retrait(montant)==true)
+		{
+			// on update le compte
+			Connection connexion = null;
+	        PreparedStatement preparedStatement = null;
 
+	        try {
+	            connexion = (Connection) daoFactory.getConnection();
+	            preparedStatement = (PreparedStatement) connexion.prepareStatement("Update compte set solde=? where numero_compte=?;");
+	            preparedStatement.setFloat(1, compte.getSolde()-montant);
+	            preparedStatement.setInt(2,compte.getNumerocompte());
+	            preparedStatement.executeUpdate();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+
+			
+			return true;
+		}else
+		{
+			return false;
+		}
+
+	
+	}
+
+	
 
 	
 	
